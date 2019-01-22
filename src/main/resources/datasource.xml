@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		说明：此文件用于配置系统中需要使用的数据源，在同一个系统中可以同时配置多个数据源。但只有一个是属于缺省的数据源。
+		在系统中有多个数据源的情况下，缺省数据源必须使用default属性进行说明。但在系统中只有一个数据源的情况下， 此属性可以忽略。
+		注意：系统中的所有数据源都使用C3P0实现，另外每一个datasource都必须要指定id，否则会跳过此定义，不会
+		建立相应的数据源。112.124.104.89 添加<property
+		name="encrypt">DES</property>密码加密方式(AES或DES)，如果选择AES加密，必须将database.dat文件放到WEB-INF/classes下,加密后的密码前缀为encrypt：
+	-->
+<datasources default="web">
+		<datasource id="web">
+			<property name="driver-name">com.mysql.jdbc.Driver</property>
+			<property name="url">jdbc:mysql://mysql-cn-east-2-6f6aafba39094dac.public.jcloud.com:3306/pdd?useUnicode=true&amp;characterEncoding=utf8</property>
+			<property name="user">Bei_Database</property>
+			<property name="password">Beibeisuper666</property>
+			<property name="initialPoolSize">10</property>
+			<property name="minPoolSize">1</property>
+			<property name="maxPoolSize">30</property>
+			<property name="checkoutTimeout">12000</property>
+			<property name="maxStatements">0</property>
+			<property name="idleConnectionTestPeriod">3000</property>
+			<property name="acquireIncrement">2</property>
+		</datasource>
+</datasources>
