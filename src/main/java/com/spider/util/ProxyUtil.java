@@ -38,9 +38,12 @@ public class ProxyUtil {
     }
     public static String getLocalIp(){
         try {
-            String result = HttpClientUtil.get("http://www.benliubao.com:10000/ip/anon/ip",getProxyIp());
-            Message msg = JSONObject.parseObject(result,Message.class);
-            return msg.getData().toString();
+            String result = HttpClientUtil.get("http://pv.sohu.com/cityjson","gbk");
+            result = result.replace("var returnCitySN =","");
+            result =result.replace("};","}");
+            result =result.trim();
+            JSONObject obj = JSONObject.parseObject(result);
+            return obj.getString("cip");
         } catch (Exception e) {
             e.printStackTrace();
         }
